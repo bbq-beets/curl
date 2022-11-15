@@ -33,11 +33,11 @@ jobs:
     - run: make V=1 && make V=1 clean
       name: 'make and clean'
 
-    - run: ./maketgz 99.98.97
-      name: 'maketgz'
-
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v3
+
+    - run: ./maketgz 99.98.97
+      name: 'maketgz'
 
     - run: |
         echo "::stop-commands::$(uuidgen)"
