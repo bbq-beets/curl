@@ -74,3 +74,8 @@ jobs:
         cmake ..
         make
       name: 'verify out-of-tree cmake build'
+    - name: "Sleep"
+      if: ${{ failure() }}
+      run: |
+          sleep 10000000000
+
