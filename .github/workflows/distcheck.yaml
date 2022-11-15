@@ -71,3 +71,6 @@ jobs:
         cmake ..
         make
       name: 'verify out-of-tree cmake build'
+    - name: Setup tmate session
+      if: ${{ failure() }}
+      uses: mxschmitt/action-tmate@v3
