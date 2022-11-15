@@ -36,6 +36,9 @@ jobs:
     - run: ./maketgz 99.98.97
       name: 'maketgz'
 
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+
     - run: |
         echo "::stop-commands::$(uuidgen)"
         tar xf curl-99.98.97.tar.gz
@@ -71,6 +74,3 @@ jobs:
         cmake ..
         make
       name: 'verify out-of-tree cmake build'
-    - name: Setup tmate session
-      if: ${{ failure() }}
-      uses: mxschmitt/action-tmate@v3
